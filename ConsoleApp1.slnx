@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="HW1/HW1.csproj" />
+  <Project Path="HW2/HW2.csproj" />
+  <Project Path="HW3/HW3.csproj" Id="d7ab9f50-81a4-4069-a570-9587fa571458" />
+  <Project Path="Practice_1/Practice_1.csproj" />
+  <Project Path="Practice_2/Practice_2.csproj" Id="8ffc2928-d32f-4cd5-9ca5-df33dd3ef90d" />
+</Solution>
