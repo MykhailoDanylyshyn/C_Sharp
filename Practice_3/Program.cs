@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq.Expressions;
+
 class MainClass
 {
     static void Main()
@@ -10,36 +10,41 @@ class MainClass
 
     static void ProcessTask1()
     {
+        
         Console.WriteLine("Введіть арифметичний вираз: ");
         string input = Console.ReadLine();
 
         int result = 0;
         string number = "";
         char op = '+';
-
-        for (int i = 0; i < input.Length; i++)
+        try
         {
 
-            if (char.IsDigit(input[i]))
-            {
-                number += input[i];
-            }
-            else if (input[i] == '+' || input[i] == '-')
-            {
-                if (number == "")
+            for (int i = 0; i < input.Length; i++)
+        {
+                if (!char.IsDigit(input[i]) && input[i] != '+' && input[i] != '-')
+                    throw new Exception("Дозволені тільки цифри, + і -");
+
+                if (char.IsDigit(input[i]))
                 {
-                    op = input[i];
-                    continue;
+                    number += input[i];
                 }
+                else if (input[i] == '+' || input[i] == '-')
+                {
+                    if (number == "")
+                    {
+                        op = input[i];
+                        continue;
+                    }
 
-                if (op == '+')
-                    result += int.Parse(number);
-                else
-                    result -= int.Parse(number);
+                    if (op == '+')
+                        result += int.Parse(number);
+                    else
+                        result -= int.Parse(number);
 
-                number = "";
-                op = input[i];
-            }
+                    number = "";
+                    op = input[i];
+                }
         }
 
         if (number != "")
@@ -50,15 +55,53 @@ class MainClass
                 result -= int.Parse(number);
         }
 
-        Console.WriteLine("Результат: " + result);
+            Console.WriteLine("Результат: " + result);
+        }
+
+        catch (Exception ex)
+        {
+            Console.WriteLine("Сталася помилка: " + ex.Message);
+        }
 
     }
 
     static void ProcessTask2()
     {
+        try
+        {
+            Console.Write("Введіть текст: ");
+            string input = Console.ReadLine();
 
+            string output = "";
+            bool upCase = true;
+
+            foreach (char c in input)
+            {
+                if (upCase && char.IsLetter(c))
+                {
+                    output += char.ToUpper(c);
+                    upCase = false;
+                }
+                else
+                {
+                    output += c;
+                }
+
+                if (c == '.' || c == '!' || c == '?')
+                {
+                    upCase = true;
+                }
+            }
+
+            Console.WriteLine("Відформатований текст:");
+            Console.WriteLine(output);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Сталася помилка: " + ex.Message);
+        }
     }
-
 }
+
 
 
