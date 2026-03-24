@@ -5,4 +5,5 @@
   <Project Path="Practice_1/Practice_1.csproj" />
   <Project Path="Practice_2/Practice_2.csproj" Id="8ffc2928-d32f-4cd5-9ca5-df33dd3ef90d" />
   <Project Path="Practice_3/Practice_3.csproj" Id="5c74a29a-8b1f-4e9f-a33a-bdcb1d6751f1" />
+  <Project Path="Practice_4/Practice_4.csproj" Id="48e432e2-1594-4eb8-adee-e27ed107c19b" />
 </Solution>
