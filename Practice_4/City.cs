@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CSharp.Classes
+namespace CSharp.City
 {
     class City
     {
@@ -80,18 +80,18 @@ namespace CSharp.Classes
         {
         }
 
-        public void PrintInfo()
+        public void PrintData()
         {
             Console.WriteLine($"{name}, {country}, {districts}, {code}. Population is {population}");
         }
 
-        public void EditInfo()
+        public void InputData()
         {
             Console.Write("Enter city name: ");
             Name = Console.ReadLine();
 
             Console.Write("Enter population: ");
-            Population =Console.ReadLine();
+            Population = Convert.ToInt32(Console.ReadLine());
 
             Console.Write("Enter country: ");
             Country = Console.ReadLine();
