@@ -25,6 +25,30 @@ namespace CSharp.Date
             }
         }
 
+        public string Day_Of_Week
+        {
+            get {
+                string day_name = "";
+
+                if (this.ToTotalDays() % 7 == 1)
+                    day_name = "Monday";
+                if (this.ToTotalDays() % 7 == 2)
+                    day_name = "Tueday";
+                if (this.ToTotalDays() % 7 == 3)
+                    day_name = "Wednesday";
+                if (this.ToTotalDays() % 7 == 4)
+                    day_name = "Thursday";
+                if (this.ToTotalDays() % 7 == 5)
+                    day_name = "Friday";
+                if (this.ToTotalDays() % 7 == 6)
+                    day_name = "Saturday";
+                if (this.ToTotalDays() % 7 == 0)
+                    day_name = "Sunday";
+
+                return day_name;
+            }
+        }
+
         public int Month
         {
             get { return month; }

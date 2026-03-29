@@ -21,3 +21,9 @@ d1.PrintDate();
 
 d1.ChangeDateByDays(-11);
 d1.PrintDate();
+
+d3.Day = 29;
+d3.Month = 3;
+d3.Year = 2026;
+
+Console.WriteLine(d3.Day_Of_Week);
