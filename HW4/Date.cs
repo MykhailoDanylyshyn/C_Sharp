@@ -13,39 +13,32 @@ namespace CSharp.Date
             get { return day; }
             set
             {
-                int maxDay = 31;
+                int maxDay = DaysInMonth(month, year);
 
-                if (month == 2)
-                    maxDay = IsLeapYear(this.year) ? 29 : 28;
-                else if (month == 4 || month == 6 || month == 9 || month == 11)
-                    maxDay = 30;
                 if (value < 1 || value > maxDay)
                     throw new ArgumentException("Некоректний день");
+
                 day = value;
             }
         }
 
         public string Day_Of_Week
         {
-            get {
-                string day_name = "";
+            get
+            {
+                int dayIndex = this.ToTotalDays() % 7;
 
-                if (this.ToTotalDays() % 7 == 1)
-                    day_name = "Monday";
-                if (this.ToTotalDays() % 7 == 2)
-                    day_name = "Tueday";
-                if (this.ToTotalDays() % 7 == 3)
-                    day_name = "Wednesday";
-                if (this.ToTotalDays() % 7 == 4)
-                    day_name = "Thursday";
-                if (this.ToTotalDays() % 7 == 5)
-                    day_name = "Friday";
-                if (this.ToTotalDays() % 7 == 6)
-                    day_name = "Saturday";
-                if (this.ToTotalDays() % 7 == 0)
-                    day_name = "Sunday";
-
-                return day_name;
+                return dayIndex switch
+                {
+                    1 => "Monday",
+                    2 => "Tuesday",
+                    3 => "Wednesday",
+                    4 => "Thursday",
+                    5 => "Friday",
+                    6 => "Saturday",
+                    0 => "Sunday",
+                    _ => ""
+                };
             }
         }
 
@@ -56,6 +49,10 @@ namespace CSharp.Date
             {
                 if (value < 1 || value > 12)
                     throw new ArgumentException("Некоректний місяць");
+
+                if (day > 0 && year > 0 && day > DaysInMonth(value, year))
+                    throw new ArgumentException("Поточний день не існує в новому місяці");
+
                 month = value;
             }
         }
@@ -67,30 +64,26 @@ namespace CSharp.Date
             {
                 if (value < 1)
                     throw new ArgumentException("Некоректний рік");
+
+                if (day > 0 && month > 0 && day > DaysInMonth(month, value))
+                    throw new ArgumentException("Поточний день не існує в новому році");
+
                 year = value;
             }
         }
 
         public Date()
         {
-                Year = 1;
-                Month = 1;
-                Day = 1;
+            Year = 1;
+            Month = 1;
+            Day = 1;
         }
 
         public Date(int day, int month, int year)
         {
-            try
-            {
-                Year = year;
-                Month = month;
-                Day = day;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Помилка: {ex.Message}");
-
-            }
+            Year = year;
+            Month = month;
+            Day = day;
         }
 
         public void PrintDate()
@@ -118,19 +111,16 @@ namespace CSharp.Date
             int totalDays = 0;
 
             for (int y = 1; y < Year; y++)
-            {
                 totalDays += IsLeapYear(y) ? 366 : 365;
-            }
 
             for (int m = 1; m < Month; m++)
-            {
                 totalDays += DaysInMonth(m, Year);
-            }
 
             totalDays += Day;
 
             return totalDays;
         }
+
         private void FromTotalDays(int totalDays)
         {
             int y = 1;
@@ -168,27 +158,73 @@ namespace CSharp.Date
             Day = totalDays;
         }
 
-
-        public void DifferenceInDays(Date other)
+        public int DifferenceInDays(Date other)
         {
-            int days1 = this.ToTotalDays();
-            int days2 = other.ToTotalDays();
-            int diff = Math.Abs(days1 - days2);
-
-            Console.WriteLine($"Різницяe між датами у днях: {diff}");
+            return Math.Abs(this.ToTotalDays() - other.ToTotalDays());
         }
 
-        public void ChangeDateByDays(int days)
+        public Date ChangeDateByDays(int days)
         {
+            Date result = new();
+
             int totalDays = ToTotalDays();
             totalDays += days;
 
             if (totalDays < 1)
                 throw new ArgumentException("Нова дата некоректна");
 
-            FromTotalDays(totalDays);
+            result.FromTotalDays(totalDays);
+            return result;
         }
 
+        public static int operator -(Date a, Date b)
+        {
+            return a.DifferenceInDays(b);
+        }
+
+        public static Date operator +(Date a, int d)
+        {
+            return a.ChangeDateByDays(d);
+        }
+
+        public static Date operator ++(Date a)
+        { 
+            return a.ChangeDateByDays(1);
+        }
+        public static Date operator --(Date a)
+        { 
+            return a.ChangeDateByDays(-1);
+        }
+
+        public static bool operator >(Date a, Date b)
+        { 
+        if (a.ToTotalDays() > b.ToTotalDays())
+                return true;
+        else 
+                return false;
+        }
+        public static bool operator <(Date a, Date b)
+        { 
+        if (a.ToTotalDays() < b.ToTotalDays())
+                return true;
+        else 
+                return false;
+        }
+
+        public static bool operator ==(Date a, Date b)
+        { 
+        if (a.day == b.day && a.month == b.month && a.year == b.year)
+                return true;
+        else
+                return false;
+        }
+        public static bool operator !=(Date a, Date b)
+        { 
+        if (a.day != b.day || a.month != b.month || a.year != b.year)
+                return true;
+        else
+                return false;
+        }
 
     }
 }
