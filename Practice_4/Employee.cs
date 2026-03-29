@@ -6,24 +6,26 @@ namespace CSharp.Employee
     class Employee
     {
         public string FullName { get; set; }
-        public DateTime BirthDate { get; set; }
+        public string BirthDate { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Position { get; set; }
         public string Responsibilities { get; set; }
+        public int Salary { get; set; }
 
         public Employee()
         {
             FullName = "NoName";
-            BirthDate = DateTime.Now;
+            BirthDate = "01.01.1990";
             Phone = "Unknown";
             Email = "Unknown";
             Position = "Unknown";
             Responsibilities = "None";
+            Salary = 0;
         }
 
-        public Employee(string fullName, DateTime birthDate, string phone,
-                        string email, string position, string responsibilities)
+        public Employee(string fullName, string birthDate, string phone,
+                        string email, string position, string responsibilities,int salary)
         {
             FullName = fullName;
             BirthDate = birthDate;
@@ -31,23 +33,63 @@ namespace CSharp.Employee
             Email = email;
             Position = position;
             Responsibilities = responsibilities;
+            Salary = salary;
         }
+
+        public static Employee operator +(Employee emp1, int value)
+        {
+            Employee result = new()
+            {
+                FullName = emp1.FullName,
+                BirthDate = emp1.BirthDate,
+                Phone = emp1.Phone,
+                Email = emp1.Email,
+                Position = emp1.Position,
+                Responsibilities = emp1.Responsibilities,
+                Salary = emp1.Salary + value
+            };
+            return result;
+        }
+
+        public static Employee operator -(Employee emp1, int value)
+        {
+            Employee result = new()
+            {
+                FullName = emp1.FullName,
+                BirthDate = emp1.BirthDate,
+                Phone = emp1.Phone,
+                Email = emp1.Email,
+                Position = emp1.Position,
+                Responsibilities = emp1.Responsibilities,
+                Salary = emp1.Salary - value
+            };
+            return result;
+        }
+
+        public static bool operator ==(Employee emp1, Employee emp2)
+        {
+            if (emp1.Salary == emp2.Salary)
+                return true;
+            else
+                return false;
+        }
+        public static bool operator !=(Employee emp1, Employee emp2)
+        {
+            if (emp1.Salary != emp2.Salary)
+                return true;
+            else
+                return false;
+        }
+
+
 
         public void InputData()
         {
             Console.Write("Enter full name: ");
             FullName = Console.ReadLine();
 
-            Console.Write("Enter birth date (yyyy-mm-dd): ");
-
-            if (DateTime.TryParse(Console.ReadLine(), out DateTime date))
-            {
-                BirthDate = date;
-            }
-            else
-            {
-                Console.WriteLine("Invalid date! Try again.");
-            }
+            Console.Write("Enter birthday date: ");
+            FullName = Console.ReadLine();
 
             Console.Write("Enter phone: ");
             Phone = Console.ReadLine();
@@ -66,12 +108,15 @@ namespace CSharp.Employee
         {
             Console.WriteLine("\n--- Employee Info ---");
             Console.WriteLine($"Full Name: {FullName}");
-            Console.WriteLine($"Birth Date: {BirthDate.ToShortDateString()}");
+            Console.WriteLine($"Birth Date: {BirthDate}");
             Console.WriteLine($"Phone: {Phone}");
             Console.WriteLine($"Email: {Email}");
             Console.WriteLine($"Position: {Position}");
             Console.WriteLine($"Responsibilities: {Responsibilities}");
+            Console.WriteLine($"Salary: {Salary}");
+            Console.WriteLine();
         }
+
     }
 
 }
