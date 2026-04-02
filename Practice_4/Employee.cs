@@ -11,7 +11,7 @@ namespace CSharp.Employee
         public string Email { get; set; }
         public string Position { get; set; }
         public string Responsibilities { get; set; }
-        public int Salary { get; set; }
+        public float Salary { get; set; }
 
         public Employee()
         {
@@ -25,7 +25,7 @@ namespace CSharp.Employee
         }
 
         public Employee(string fullName, string birthDate, string phone,
-                        string email, string position, string responsibilities,int salary)
+                        string email, string position, string responsibilities,float salary)
         {
             FullName = fullName;
             BirthDate = birthDate;
@@ -36,7 +36,7 @@ namespace CSharp.Employee
             Salary = salary;
         }
 
-        public static Employee operator +(Employee emp1, int value)
+        public static Employee operator +(Employee emp1, float value)
         {
             Employee result = new()
             {
@@ -51,7 +51,7 @@ namespace CSharp.Employee
             return result;
         }
 
-        public static Employee operator -(Employee emp1, int value)
+        public static Employee operator -(Employee emp1, float value)
         {
             Employee result = new()
             {
@@ -117,6 +117,49 @@ namespace CSharp.Employee
             Console.WriteLine();
         }
 
+        public (string, string,double) Salary_Calculate(double per_hour, int days) // фіксована ставка
+        {
+            try
+            {
+                (string, string, double) cal_salary = ("Фіксована ставка", FullName, Math.Round(per_hour * days * 8,2));
+                return cal_salary;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Неочікувана помилка!");
+                return ("Помилка при обчисленні", FullName, 0);
+            }
+            
+        }
+        public (string, string, double) Salary_Calculate(double per_hour, double hours) // за годинним тарифом
+        {
+            try
+            {
+                (string, string, double) cal_salary = ("За годинним тарифом", FullName, Math.Round( per_hour * hours,2));
+                return cal_salary;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Неочікувана помилка!");
+                return ("Помилка при обчисленні", FullName, 0);
+            }
+
+        }
+        public (string, string, double) Salary_Calculate(double per_hour, int hours, int days, double bonus_percent) // "з урахуванням премій
+        {
+            try
+            {
+                (string, string, double) cal_salary = ("З урахуванням премій", FullName, Math.Round(per_hour * hours * days * (1+bonus_percent/100.0),2));
+                
+                return cal_salary;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Неочікувана помилка!");
+                return ("Помилка при обчисленні", FullName, 0);
+            }
+        }
+          
     }
 
 }
