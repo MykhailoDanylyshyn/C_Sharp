@@ -2,42 +2,28 @@
 using System;
 using System.Text;
 
-Console.OutputEncoding = Encoding.UTF8;
-Console.InputEncoding = Encoding.UTF8;
+try
+{
+    BookList list = new BookList();
 
-    static void Main()
-    {
-        Console.Write("Введи секрет: ");
+    Book b1 = new Book("1984", "Orwell", 328);
+    Book b2 = new Book("Dune", "Herbert", 412);
 
-        string secret = ReadHiddenInput();
+    list += b1;
+    list += b2;
 
-        Console.WriteLine("\nГотово.");
-        Console.WriteLine($"Довжина введення: {secret.Length}");
-    }
+    list.Show();
 
-    static string ReadHiddenInput()
-    {
-        StringBuilder sb = new StringBuilder();
-        ConsoleKeyInfo key;
+    Console.WriteLine(list.Contains(b1)); 
 
-        while (true)
-        {
-            key = Console.ReadKey(true); // true = не показувати символ
+    Console.WriteLine(list[0]);
 
-            if (key.Key == ConsoleKey.Enter)
-                break;
+    list -= b1;
 
-            if (key.Key == ConsoleKey.Backspace && sb.Length > 0)
-            {
-                sb.Length--;
-                continue;
-            }
-
-            if (!char.IsControl(key.KeyChar))
-            {
-                sb.Append(key.KeyChar);
-            }
-        }
-
-        return sb.ToString();
-    }
+    Console.WriteLine("\nПісля видалення:");
+    list.Show();
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
