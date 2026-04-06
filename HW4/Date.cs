@@ -251,6 +251,10 @@ namespace CSharp.Date
             }
                 return a;
         }
+        public static Date operator +(Date a, char c)
+        {
+            throw new ArgumentException("Не можна додавати символ до дати");
+        }
 
         public static Date operator ++(Date a)
         { 
