@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Practice_6
 {
@@ -31,6 +29,7 @@ namespace Practice_6
 
             items[count] = item;
             count++;
+            Console.WriteLine("Товар додано.");
         }
 
         public void RemoveItem(string name)
@@ -43,11 +42,13 @@ namespace Practice_6
                     {
                         items[j] = items[j + 1];
                     }
+
                     count--;
                     Console.WriteLine("Товар видалено.");
                     return;
                 }
             }
+
             Console.WriteLine("Товар не знайдено.");
         }
 
@@ -63,6 +64,7 @@ namespace Practice_6
                     return;
                 }
             }
+
             Console.WriteLine("Товар не знайдено.");
         }
 
@@ -74,6 +76,7 @@ namespace Practice_6
                 return;
             }
 
+            Console.WriteLine("\nТовари на складі:");
             for (int i = 0; i < count; i++)
             {
                 items[i].Display();

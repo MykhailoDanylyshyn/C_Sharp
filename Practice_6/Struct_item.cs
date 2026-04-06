@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Practice_6
 {
@@ -10,6 +8,7 @@ namespace Practice_6
         Furniture,
         Food
     }
+
     struct Item
     {
         public string Name;
