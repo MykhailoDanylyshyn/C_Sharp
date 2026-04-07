@@ -7,7 +7,6 @@
   <Project Path="HW4/HW4.csproj" Id="c614f6e1-c0f3-467b-b953-bb4aa710c8f6" />
   <Project Path="HW5/HW5.csproj" Id="487575d3-db76-4618-8356-fb96f9051875" />
   <Project Path="HW6/HW6.csproj" Id="76e206f4-ccdc-42ed-85ed-c5dcff22a5d1" />
-  <Project Path="Practice7/Practice_8.csproj" Id="582e08bc-eaf2-41ac-a2df-973afe327d5d" />
   <Project Path="Practice_1/Practice_1.csproj" />
   <Project Path="Practice_2/Practice_2.csproj" Id="8ffc2928-d32f-4cd5-9ca5-df33dd3ef90d" />
   <Project Path="Practice_3/Practice_3.csproj" Id="5c74a29a-8b1f-4e9f-a33a-bdcb1d6751f1" />
@@ -15,4 +14,5 @@
   <Project Path="Practice_5/Practice_5.csproj" Id="9870d8ad-dda5-4f6e-ac66-0d99336e4087" />
   <Project Path="Practice_6/Practice_6.csproj" Id="597c6723-fae7-43ae-ae69-695c035f01fd" />
   <Project Path="Practice_7/Practice_7.csproj" Id="39840967-c37a-4585-a145-d2228c6f0bd3" />
+  <Project Path="Practice_8/Practice_8.csproj" Id="21cb2101-def6-4539-9598-d9b109fb6ea8" />
 </Solution>
