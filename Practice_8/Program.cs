@@ -11,6 +11,7 @@ class Program
             forpas.Show();
 
             Console.WriteLine();
+            Console.WriteLine();
 
             Passport pas = forpas;
             pas.Show();
