@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibraryCourse\ClassLibraryCourse.csproj" />
+    <ProjectReference Include="..\ClassLibraryWorker\ClassLibraryWorker.csproj" />
+  </ItemGroup>
+
 </Project>
