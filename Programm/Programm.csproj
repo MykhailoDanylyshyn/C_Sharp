@@ -7,9 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ClassLibraryHuman\ClassLibraryHuman.csproj" />
-    <ProjectReference Include="..\ClassLibraryPassport\ClassLibraryPassport.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -1,6 +1,15 @@
 <Solution>
+  <Folder Name="/Practice_8/">
+    <Project Path="ClassLibraryHuman/ClassLibraryHuman.csproj" Id="f884b477-fae5-4341-8d44-0b9278679358" />
+    <Project Path="ClassLibraryPassport/ClassLibraryPassport.csproj" Id="67a62e53-5c9f-4d77-80c1-f113b8d47278" />
+    <Project Path="Practice_8/Practice_8.csproj" Id="21cb2101-def6-4539-9598-d9b109fb6ea8" />
+  </Folder>
+  <Folder Name="/Practice_9/">
+    <Project Path="ClassLibraryCourse/ClassLibraryCourse.csproj" Id="e3ebb337-ca39-40c7-bf47-efc1c7f3d692" />
+    <Project Path="ClassLibraryWorker/ClassLibraryWorker.csproj" Id="ae326c9d-984f-47a0-9937-be0dc48c4507" />
+    <Project Path="Programm/Programm.csproj" Id="e86590cb-98cd-4a7e-9e10-b7fa67e9bf54" />
+  </Folder>
   <Project Path="Books_List/Books_List.csproj" Id="6bdad4ac-1287-47a5-8f88-f4963f5528fc" />
-  <Project Path="ClassLibraryPassport/ClassLibraryPassport.csproj" Id="67a62e53-5c9f-4d77-80c1-f113b8d47278" />
   <Project Path="HW1/HW1.csproj" />
   <Project Path="HW2/HW2.csproj" />
   <Project Path="HW3/HW3.csproj" Id="d7ab9f50-81a4-4069-a570-9587fa571458" />
@@ -14,5 +23,4 @@
   <Project Path="Practice_5/Practice_5.csproj" Id="9870d8ad-dda5-4f6e-ac66-0d99336e4087" />
   <Project Path="Practice_6/Practice_6.csproj" Id="597c6723-fae7-43ae-ae69-695c035f01fd" />
   <Project Path="Practice_7/Practice_7.csproj" Id="39840967-c37a-4585-a145-d2228c6f0bd3" />
-  <Project Path="Practice_8/Practice_8.csproj" Id="21cb2101-def6-4539-9598-d9b109fb6ea8" />
 </Solution>
