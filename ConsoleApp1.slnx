@@ -7,7 +7,7 @@
   <Folder Name="/Practice_9/">
     <Project Path="ClassLibraryCourse/ClassLibraryCourse.csproj" Id="e3ebb337-ca39-40c7-bf47-efc1c7f3d692" />
     <Project Path="ClassLibraryWorker/ClassLibraryWorker.csproj" Id="ae326c9d-984f-47a0-9937-be0dc48c4507" />
-    <Project Path="Programm/Programm.csproj" Id="e86590cb-98cd-4a7e-9e10-b7fa67e9bf54" />
+    <Project Path="Programm/Practice_9.csproj" Id="e86590cb-98cd-4a7e-9e10-b7fa67e9bf54" />
   </Folder>
   <Project Path="Books_List/Books_List.csproj" Id="6bdad4ac-1287-47a5-8f88-f4963f5528fc" />
   <Project Path="HW1/HW1.csproj" />
