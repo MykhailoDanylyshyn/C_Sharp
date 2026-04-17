@@ -10,12 +10,14 @@
     <Project Path="Programm/Practice_9.csproj" Id="e86590cb-98cd-4a7e-9e10-b7fa67e9bf54" />
   </Folder>
   <Project Path="Books_List/Books_List.csproj" Id="6bdad4ac-1287-47a5-8f88-f4963f5528fc" />
+  <Project Path="ClassLibrary_HW7/ClassLibrary_HW7.csproj" Id="826ae627-ce99-4933-b8cd-9614731d276d" />
   <Project Path="HW1/HW1.csproj" />
   <Project Path="HW2/HW2.csproj" />
   <Project Path="HW3/HW3.csproj" Id="d7ab9f50-81a4-4069-a570-9587fa571458" />
   <Project Path="HW4/HW4.csproj" Id="c614f6e1-c0f3-467b-b953-bb4aa710c8f6" />
   <Project Path="HW5/HW5.csproj" Id="487575d3-db76-4618-8356-fb96f9051875" />
   <Project Path="HW6/HW6.csproj" Id="76e206f4-ccdc-42ed-85ed-c5dcff22a5d1" />
+  <Project Path="HW7/HW7.csproj" Id="73a9673a-90a8-420b-82ed-64c9748b99a4" />
   <Project Path="Practice_1/Practice_1.csproj" />
   <Project Path="Practice_2/Practice_2.csproj" Id="8ffc2928-d32f-4cd5-9ca5-df33dd3ef90d" />
   <Project Path="Practice_3/Practice_3.csproj" Id="5c74a29a-8b1f-4e9f-a33a-bdcb1d6751f1" />
