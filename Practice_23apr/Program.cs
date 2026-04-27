@@ -1,30 +1,99 @@
 ﻿using System;
+
 class Program
 {
-    static void ShowCurrentTime()
+    static void FirstTask()
     {
-        Console.WriteLine("Поточний час: " + DateTime.Now.ToLongTimeString());
+        static void ShowCurrentTime()
+        {
+            Console.WriteLine("Поточний час: " + DateTime.Now.ToLongTimeString());
+        }
+
+        static void ShowCurrentDate()
+        {
+            Console.WriteLine("Поточна дата: " + DateTime.Now.ToShortDateString());
+        }
+
+        static void ShowCurrentDayOfWeek()
+        {
+            Console.WriteLine("Сьогодні: " + DateTime.Now.DayOfWeek);
+        }
+
+        static void Client(Action method)
+        {
+            method();
+        }
+
+        Client(ShowCurrentTime);
+        Client(ShowCurrentDate);
+        Client(ShowCurrentDayOfWeek);
     }
 
-    static void ShowCurrentDate()
+    public delegate int TextProces(string text);
+
+    static int CountVowels(string text)
     {
-        Console.WriteLine("Поточна дата: " + DateTime.Now.ToShortDateString());
+        string vowels = "aeiouAEIOUаеиіоуяєюїАЕИІОУЯЄЮЇ";
+        int count = 0;
+
+        foreach (char c in text)
+            if (vowels.IndexOf(c) >= 0)
+                count++;
+
+        return count;
     }
 
-    static void ShowCurrentDayOfWeek()
+    static int CountConsonants(string text)
     {
-        Console.WriteLine("Сьогодні: " + DateTime.Now.DayOfWeek);
+        string letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                       + "абвгґдеєжзиіїйклмнопрстуфхцчшщьБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬ";
+        string vowels = "aeiouAEIOUаеиіоуяєюїАЕИІОУЯЄЮЇ";
+
+        int count = 0;
+
+        foreach (char c in text)
+            if (letters.IndexOf(c) >= 0 && vowels.IndexOf(c) < 0)
+                count++;
+
+        return count;
     }
 
-    static void Client(Action method)
+    static int GetLength(string text)
     {
-        method();
+        return text.Length;
+    }
+
+    static void Client2(TextProces del, string text)
+    {
+        Console.WriteLine("Результати обробки тексту:\n");
+
+        foreach (TextProces method in del.GetInvocationList())
+        {
+            int result = method(text);
+            Console.WriteLine($"{method.Method.Name,-18} → {result}");
+        }
+    }
+
+    static void SecondTask()
+    {
+        TextProces processor = CountVowels;
+        processor += CountConsonants;
+        processor += GetLength;
+
+        Client2(processor, "Hello World");
     }
 
     static void Main()
     {
-        Client(ShowCurrentTime);
-        Client(ShowCurrentDate);
-        Client(ShowCurrentDayOfWeek);
+        try
+        {
+            FirstTask();
+            Console.WriteLine("==========================\n");
+            SecondTask();
+        }
+        catch (Exception e)
+        {
+            Console.Write(e.Message);
+        }
     }
 }
